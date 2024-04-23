@@ -1,0 +1,47 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Similarity Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 40px;
+        }
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            border: 3px solid #ddd; /* Adjust the color as needed */
+            font-size: 14px; /* Adjust the size as needed */
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2; /* Adjust the color as needed */
+        }
+        tr:hover {background-color: #ddd;}
+    </style>
+</head>
+<body>
+    <h2>Similarity Results</h2>
+    <table>
+        <tr>
+            <th>Patent ID</th>
+            <th>Claim Text</th>
+            <th>Similarity Score</th>
+        </tr>
+        {% for item in results %}
+        <tr>
+            <td>{{ item['patent_id'] }}</td>
+            <td>{{ item['text'] }}</td>
+            <td>{{ '%.4f' | format(item['similarity_score']) }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
